@@ -4,6 +4,8 @@
 var options,
     controllerConfig;
 
+var path = require('path')
+
 //provides access to the current options and configs.
 var config = {
     setOptions: function(opts) {
@@ -36,7 +38,7 @@ var config = {
         if (typeof options.config === "object") {
             controllerConfiguration = options.config;
         } else {
-            controllerConfiguration = require('./../controllerConfigurations/' + options.config);
+            controllerConfiguration = require(path.join('./../controllerConfigurations/', options.config));
         }
 
         //set the current controllerConfiguration
