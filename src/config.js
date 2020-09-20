@@ -4,6 +4,7 @@
 var options,
     controllerConfig;
 
+const { exception } = require('console');
 var path = require('path')
 
 //provides access to the current options and configs.
@@ -38,7 +39,7 @@ var config = {
         if (typeof options.config === "object") {
             controllerConfiguration = options.config;
         } else {
-            controllerConfiguration = require(path.join('./../controllerConfigurations/', options.config));
+            throw new Exception("No Configuration found.")
         }
 
         //set the current controllerConfiguration
